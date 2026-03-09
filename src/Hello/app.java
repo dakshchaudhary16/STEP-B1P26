@@ -4,8 +4,8 @@ public class app {
 
         String word = "level";
 
-        PalindromeService service = new PalindromeService();
+        PalindromeStrategy strategy = new StackStrategy();
 
-        System.out.println(service.checkPalindrome(word));
+        System.out.println(strategy.check(word));
     }
 }
