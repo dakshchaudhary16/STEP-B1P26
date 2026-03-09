@@ -9,6 +9,7 @@ public class app {
         Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
+        // enqueue and push
         for(char c : word.toCharArray()){
             queue.add(c);
             stack.push(c);
@@ -16,6 +17,7 @@ public class app {
 
         boolean palindrome = true;
 
+        // compare FIFO vs LIFO
         while(!queue.isEmpty()){
             if(queue.remove() != stack.pop()){
                 palindrome = false;
@@ -24,9 +26,9 @@ public class app {
         }
 
         if(palindrome){
-            System.out.println("Palindrome");
-        } else {
-            System.out.println("Not Palindrome");
+            System.out.println(word + " is a Palindrome");
+        }else{
+            System.out.println(word + " is NOT a Palindrome");
         }
     }
 }
