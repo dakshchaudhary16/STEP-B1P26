@@ -1,18 +1,27 @@
+import java.util.Stack;
+
 public class app {
 
     public static void main(String[] args) {
 
-        String str = "level";
-        String reversed = "";
+        String word = "level";
 
-        for(int i = str.length() - 1; i >= 0; i--){
-            reversed = reversed + str.charAt(i);
+        Stack<Character> stack = new Stack<>();
+
+        for(char c : word.toCharArray()){
+            stack.push(c);
         }
 
-        if(str.equals(reversed)){
-            System.out.println(str + " is a Palindrome");
+        String reversed = "";
+
+        while(!stack.isEmpty()){
+            reversed = reversed + stack.pop();
+        }
+
+        if(word.equals(reversed)){
+            System.out.println("Palindrome");
         } else {
-            System.out.println(str + " is NOT a Palindrome");
+            System.out.println("Not Palindrome");
         }
     }
 }
