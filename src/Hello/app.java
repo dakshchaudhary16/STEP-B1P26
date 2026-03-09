@@ -1,5 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class app {
 
@@ -7,16 +6,18 @@ public class app {
 
         String word = "level";
 
-        Deque<Character> deque = new ArrayDeque<>();
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
 
         for(char c : word.toCharArray()){
-            deque.addLast(c);
+            queue.add(c);
+            stack.push(c);
         }
 
         boolean palindrome = true;
 
-        while(deque.size() > 1){
-            if(deque.removeFirst() != deque.removeLast()){
+        while(!queue.isEmpty()){
+            if(queue.remove() != stack.pop()){
                 palindrome = false;
                 break;
             }
