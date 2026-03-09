@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.LinkedList;
 
 public class app {
 
@@ -6,29 +6,21 @@ public class app {
 
         String word = "level";
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        LinkedList<Character> list = new LinkedList<>();
 
-        // enqueue and push
         for(char c : word.toCharArray()){
-            queue.add(c);
-            stack.push(c);
+            list.add(c);
         }
 
         boolean palindrome = true;
 
-        // compare FIFO vs LIFO
-        while(!queue.isEmpty()){
-            if(queue.remove() != stack.pop()){
+        while(list.size() > 1){
+            if(list.removeFirst() != list.removeLast()){
                 palindrome = false;
                 break;
             }
         }
 
-        if(palindrome){
-            System.out.println(word + " is a Palindrome");
-        }else{
-            System.out.println(word + " is NOT a Palindrome");
-        }
+        System.out.println(palindrome ? "Palindrome" : "Not Palindrome");
     }
 }
