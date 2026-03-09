@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class app {
 
@@ -6,19 +7,22 @@ public class app {
 
         String word = "level";
 
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for(char c : word.toCharArray()){
-            stack.push(c);
+            deque.addLast(c);
         }
 
-        String reversed = "";
+        boolean palindrome = true;
 
-        while(!stack.isEmpty()){
-            reversed = reversed + stack.pop();
+        while(deque.size() > 1){
+            if(deque.removeFirst() != deque.removeLast()){
+                palindrome = false;
+                break;
+            }
         }
 
-        if(word.equals(reversed)){
+        if(palindrome){
             System.out.println("Palindrome");
         } else {
             System.out.println("Not Palindrome");
