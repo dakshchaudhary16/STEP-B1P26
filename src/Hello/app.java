@@ -1,26 +1,23 @@
-import java.util.LinkedList;
-
 public class app {
 
-    public static void main(String[] args) {
+    static boolean check(String word, int start, int end){
+
+        if(start >= end)
+            return true;
+
+        if(word.charAt(start) != word.charAt(end))
+            return false;
+
+        return check(word, start+1, end-1);
+    }
+
+    public static void main(String[] args){
 
         String word = "level";
 
-        LinkedList<Character> list = new LinkedList<>();
-
-        for(char c : word.toCharArray()){
-            list.add(c);
-        }
-
-        boolean palindrome = true;
-
-        while(list.size() > 1){
-            if(list.removeFirst() != list.removeLast()){
-                palindrome = false;
-                break;
-            }
-        }
-
-        System.out.println(palindrome ? "Palindrome" : "Not Palindrome");
+        if(check(word,0,word.length()-1))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
     }
 }
